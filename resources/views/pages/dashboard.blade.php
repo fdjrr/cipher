@@ -39,8 +39,13 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Digest Alg</label>
-                                <input type="text" name="digest_alg" placeholder="Digest Alg"
-                                    value="{{ $digest_alg }}" @class(['form-control', 'is-invalid' => $errors->has('digest_alg')])>
+                                <select name="digest_alg" @class(['form-control', 'is-invalid' => $errors->has('digest_alg')])>
+                                    <option value="">Choose Digest Alg</option>
+                                    @forelse ($digest_algs as $digest_alg)
+                                        <option value="{{ $digest_alg }}">{{ $digest_alg }}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
                                 @error('digest_alg')
                                     <div class="invalid-feedback">
                                         {{ $message }}

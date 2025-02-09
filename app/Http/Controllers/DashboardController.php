@@ -13,7 +13,20 @@ class DashboardController extends Controller
     public function index()
     {
         return view('pages.dashboard', [
-            "digest_alg" => "sha256",
+            "digest_algs" => [
+                'md5',
+                'sha1',
+                'sha224',
+                'sha256',
+                'sha384',
+                'sha512',
+                'blake2b512',
+                'blake2s256',
+                'sha3-224',
+                'sha3-256',
+                'sha3-384',
+                'sha3-512',
+            ],
             "private_key_bits" => 2048,
             "private_key_type" => "OPENSSL_KEYTYPE_RSA",
         ]);
